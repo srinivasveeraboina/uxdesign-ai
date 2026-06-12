@@ -18,11 +18,107 @@
   html { scroll-behavior: smooth; }
   body {
     margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     background: var(--bg);
     color: var(--text);
     line-height: 1.6;
     overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, .num, .num-tag, .nav-cta, .btn, .stat .num {
+    font-family: 'Space Grotesk', 'Inter', -apple-system, sans-serif;
+  }
+
+  /* ---------- Add-on integration ---------- */
+  /* tsParticles canvas in hero */
+  #tsparticles {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    pointer-events: auto;
+  }
+  #tsparticles canvas {
+    position: absolute !important;
+    inset: 0 !important;
+  }
+  .hero-inner { position: relative; z-index: 2; }
+
+  /* Boxicons inside benefit card icon containers */
+  .card .icon i.bx { font-size: 32px; line-height: 1; color: rgb(var(--acc)); }
+  .card.lg .icon i.bx { font-size: 44px; }
+  .card .arrow i.bx { font-size: 20px; line-height: 1; }
+
+  /* Boxicons inside buttons */
+  .btn i.bx { font-size: 18px; line-height: 1; vertical-align: middle; }
+
+  /* Boxicons in compare headings + marks */
+  .compare-col h3 i.bx { font-size: 22px; vertical-align: -4px; margin-right: 4px; }
+
+  /* Tilt support */
+  .tilt { will-change: transform; }
+  .js-tilt-glare {
+    border-radius: inherit !important;
+    overflow: hidden !important;
+  }
+
+  /* Back to Top button */
+  .back-to-top {
+    position: fixed;
+    bottom: 28px;
+    right: 28px;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, var(--brand), var(--brand-2));
+    color: #0b0d17;
+    box-shadow: 0 10px 30px rgba(124, 92, 255, 0.4),
+                inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px) scale(0.85);
+    transition: opacity 0.35s ease,
+                visibility 0.35s ease,
+                transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+                box-shadow 0.3s ease;
+    z-index: 100;
+  }
+  .back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0) scale(1);
+  }
+  .back-to-top:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 16px 40px rgba(124, 92, 255, 0.55),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  }
+  .back-to-top i.bx {
+    font-size: 26px;
+    line-height: 1;
+    font-weight: 700;
+  }
+  @media (max-width: 640px) {
+    .back-to-top { bottom: 18px; right: 18px; width: 46px; height: 46px; }
+    .back-to-top i.bx { font-size: 22px; }
+  }
+
+  /* Hero H1 layout: each visual line centers independently */
+  .hero h1 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.05em;
+  }
+  .hero h1 .h1-row {
+    display: inline-flex;
+    align-items: baseline;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.25em;
   }
 
   a { color: var(--brand-2); text-decoration: none; }
@@ -148,6 +244,18 @@
   }
   h1 .grad {
     background: linear-gradient(120deg, var(--brand), var(--brand-2) 50%, var(--accent));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  h1 .grad-2 {
+    background: linear-gradient(120deg, #ff7ab6, #fbbf24 60%, #19d3da);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  h1 .grad-3 {
+    background: linear-gradient(120deg, #19d3da, #7c5cff 50%, #ff7ab6);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
